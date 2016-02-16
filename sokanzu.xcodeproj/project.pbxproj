@@ -14,6 +14,10 @@
 		CE938FDD1C71A4440006AB30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE938FDB1C71A4440006AB30 /* LaunchScreen.storyboard */; };
 		CE938FE81C71A4440006AB30 /* sokanzuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FE71C71A4440006AB30 /* sokanzuTests.swift */; };
 		CE938FF31C71A4440006AB30 /* sokanzuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FF21C71A4440006AB30 /* sokanzuUITests.swift */; };
+		CE9390031C71AAD20006AB30 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390021C71AAD20006AB30 /* secondViewController.swift */; };
+		CE9390051C71AB3B0006AB30 /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390041C71AB3B0006AB30 /* thirdViewController.swift */; };
+		CE9390071C71AB970006AB30 /* fourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390061C71AB970006AB30 /* fourthViewController.swift */; };
+		CED6F7711C7302C0007591CE /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7701C7302C0007591CE /* test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		CE938FEE1C71A4440006AB30 /* sokanzuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sokanzuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE938FF21C71A4440006AB30 /* sokanzuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sokanzuUITests.swift; sourceTree = "<group>"; };
 		CE938FF41C71A4440006AB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE9390021C71AAD20006AB30 /* secondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		CE9390041C71AB3B0006AB30 /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
+		CE9390061C71AB970006AB30 /* fourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fourthViewController.swift; sourceTree = "<group>"; };
+		CED6F7701C7302C0007591CE /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +108,11 @@
 				CE938FD21C71A4440006AB30 /* AppDelegate.swift */,
 				CE938FD41C71A4440006AB30 /* ViewController.swift */,
 				CE938FD61C71A4440006AB30 /* Main.storyboard */,
+				CE9390041C71AB3B0006AB30 /* thirdViewController.swift */,
+				CE9390061C71AB970006AB30 /* fourthViewController.swift */,
+				CED6F7701C7302C0007591CE /* test.jpg */,
 				CE938FD91C71A4440006AB30 /* Assets.xcassets */,
+				CE9390021C71AAD20006AB30 /* secondViewController.swift */,
 				CE938FDB1C71A4440006AB30 /* LaunchScreen.storyboard */,
 				CE938FDE1C71A4440006AB30 /* Info.plist */,
 			);
@@ -235,6 +247,7 @@
 				CE938FDD1C71A4440006AB30 /* LaunchScreen.storyboard in Resources */,
 				CE938FDA1C71A4440006AB30 /* Assets.xcassets in Resources */,
 				CE938FD81C71A4440006AB30 /* Main.storyboard in Resources */,
+				CED6F7711C7302C0007591CE /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9390071C71AB970006AB30 /* fourthViewController.swift in Sources */,
 				CE938FD51C71A4440006AB30 /* ViewController.swift in Sources */,
+				CE9390031C71AAD20006AB30 /* secondViewController.swift in Sources */,
+				CE9390051C71AB3B0006AB30 /* thirdViewController.swift in Sources */,
 				CE938FD31C71A4440006AB30 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +501,7 @@
 				CE938FF91C71A4440006AB30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE938FFA1C71A4440006AB30 /* Build configuration list for PBXNativeTarget "sokanzuTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +510,7 @@
 				CE938FFC1C71A4440006AB30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE938FFD1C71A4440006AB30 /* Build configuration list for PBXNativeTarget "sokanzuUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +519,7 @@
 				CE938FFF1C71A4440006AB30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
