@@ -7,9 +7,27 @@
 //
 
 import UIKit
+import Social
 
 class fourthViewController: UIViewController {
 
+    
+    @IBOutlet weak var memberName1: UILabel!
+    @IBOutlet weak var memberName2: UILabel!
+    @IBOutlet weak var comment1: UITextView!
+    @IBOutlet weak var comment2: UITextView!
+    @IBOutlet weak var relationshipUp: UILabel!
+    @IBOutlet weak var relationshipDown: UILabel!
+    
+    
+    
+    @IBAction func tapShare(sender: UIButton) {
+        var twitterVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        twitterVC.setInitialText("iphoneアプリ開発中なu")
+        //message表示
+        presentViewController(twitterVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

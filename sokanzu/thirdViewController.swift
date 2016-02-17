@@ -9,15 +9,18 @@
 import UIKit
 
 class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var number: UILabel!
+    @IBOutlet weak var memberName: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var memberNumber:String = ""
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = UIImage(named: "test.jpg")
     }
-
-    
-    @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func tapGesture(sender: UITapGestureRecognizer) {
         // フォトライブラリを使用できるか確認

@@ -35,6 +35,14 @@ class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         
     }
     
+    // Segueで画面遷移する時
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var thirdVC = segue.destinationViewController as! thirdViewController
+        
+        thirdVC.memberNumber = dataArray[row]
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
