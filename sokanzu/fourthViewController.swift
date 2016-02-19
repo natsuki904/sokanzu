@@ -12,14 +12,17 @@ import Social
 class fourthViewController: UIViewController {
 
     
-    @IBOutlet weak var memberName1: UILabel!
-    @IBOutlet weak var memberName2: UILabel!
+
+    @IBOutlet weak var textField1: UILabel!
+    @IBOutlet weak var textField2: UILabel!
     @IBOutlet weak var comment1: UITextView!
     @IBOutlet weak var comment2: UITextView!
     @IBOutlet weak var relationshipUp: UILabel!
     @IBOutlet weak var relationshipDown: UILabel!
+    @IBOutlet weak var memberNumber: UILabel!
+    @IBOutlet weak var image1: UIImageView!
     
-    
+
     
     @IBAction func tapShare(sender: UIButton) {
         var twitterVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
@@ -30,9 +33,19 @@ class fourthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //一人目の名前
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        var myStr:String = myDefault.stringForKey("myString")!
+        textField1.text = myStr
+        
+        //写真
+        var myDefault2 = NSUserDefaults.standardUserDefaults()
+        var myStr2:String = myDefault2.stringForKey("myImg")!
+        image1.image = UIImage(named: myStr2)
+        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

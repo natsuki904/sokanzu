@@ -10,16 +10,24 @@ import UIKit
 
 class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet var thirdView: UIView!
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var memberName: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
-    var memberNumber:String = ""
+    var memberNumber:Int = 0
+    var str:String = ""
+    var str2:String = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = UIImage(named: "test.jpg")
+        str = String(memberNumber)
+        print(str)
+        number.text = "1"
+        str2 = memberName.text!
+
     }
     
     @IBAction func tapGesture(sender: UITapGestureRecognizer) {
@@ -45,7 +53,50 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // フォトライブラリの画像・写真選択画面を閉じる
         picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+        let assetURL:AnyObject = editingInfo![UIImagePickerControllerReferenceURL]!
+        let url = NSURL(string: assetURL.description)
+        
+        //ユーザーデフォルトを用意する
+        var myDefault2 = NSUserDefaults.standardUserDefaults()
+        //データを書き込んで
+        myDefault2.setObject(assetURL.description, forKey: "myImg")
+        //即反映させる
+        myDefault2.synchronize()
     }
+    
+    
+    @IBAction func tapNext(sender: UIButton) {
+        //ユーザーデフォルトを用意する
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        //データを書き込んで
+        myDefault.setObject(memberName.text, forKey: "myString")
+        //即反映させる
+        myDefault.synchronize()
+        
+    }
+
+//    func reloadPage(sender: UIBarButtonItem) {
+//        self.thirdView.reload()
+//    }
+
+
+
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+//        
+//        let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]!
+//        let url = NSURL(string: assetURL.description)
+//        
+//        //ユーザーデフォルトを用意する
+//        var myDefault2 = NSUserDefaults.standardUserDefaults()
+//        //データを書き込んで
+//        myDefault2.setObject(info, forKey: "myImg")
+//        //即反映させる
+//        myDefault2.synchronize()
+//        
+//        
+//    }
     
     
     override func didReceiveMemoryWarning() {

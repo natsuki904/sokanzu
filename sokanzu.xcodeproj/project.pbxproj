@@ -18,6 +18,7 @@
 		CE9390051C71AB3B0006AB30 /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390041C71AB3B0006AB30 /* thirdViewController.swift */; };
 		CE9390071C71AB970006AB30 /* fourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390061C71AB970006AB30 /* fourthViewController.swift */; };
 		CED6F7711C7302C0007591CE /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7701C7302C0007591CE /* test.jpg */; };
+		CED6F7731C76FD88007591CE /* result.json in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7721C76FD88007591CE /* result.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CE9390041C71AB3B0006AB30 /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
 		CE9390061C71AB970006AB30 /* fourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fourthViewController.swift; sourceTree = "<group>"; };
 		CED6F7701C7302C0007591CE /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		CED6F7721C76FD88007591CE /* result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = result.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				CE9390021C71AAD20006AB30 /* secondViewController.swift */,
 				CE938FDB1C71A4440006AB30 /* LaunchScreen.storyboard */,
 				CE938FDE1C71A4440006AB30 /* Info.plist */,
+				CED6F7721C76FD88007591CE /* result.json */,
 			);
 			path = sokanzu;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED6F7731C76FD88007591CE /* result.json in Resources */,
 				CE938FDD1C71A4440006AB30 /* LaunchScreen.storyboard in Resources */,
 				CE938FDA1C71A4440006AB30 /* Assets.xcassets in Resources */,
 				CE938FD81C71A4440006AB30 /* Main.storyboard in Resources */,

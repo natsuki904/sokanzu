@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="323"/>
+            <point key="canvasLocation" x="1171" y="323"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="LsE-mI-Kw0">
@@ -61,14 +61,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="１人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kto-Ya-eQw">
-                                <rect key="frame" x="73" y="112" width="56" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kto-Ya-eQw">
+                                <rect key="frame" x="73" y="112" width="22" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目を選んでください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ih-6C-Q0y">
-                                <rect key="frame" x="110" y="120" width="170" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="人目を選んでください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ih-6C-Q0y">
+                                <rect key="frame" x="93" y="120" width="187" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -82,7 +82,8 @@
                                 <rect key="frame" x="155" y="477" width="30" height="30"/>
                                 <state key="normal" title="次へ"/>
                                 <connections>
-                                    <segue destination="O6Y-Lz-mzJ" kind="show" id="biY-pm-noY"/>
+                                    <action selector="tapNext:" destination="fsi-06-VTP" eventType="touchUpInside" id="Kt6-Ev-7Nz"/>
+                                    <segue destination="fsi-06-VTP" kind="show" id="ITh-m7-OTq"/>
                                 </connections>
                             </button>
                             <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-vZ-UWh">
@@ -100,6 +101,7 @@
                         <outlet property="imageView" destination="Eeb-vZ-UWh" id="8iQ-Za-z9c"/>
                         <outlet property="memberName" destination="QJD-WX-GWY" id="1bk-Pj-cfT"/>
                         <outlet property="number" destination="kto-Ya-eQw" id="eiV-aE-Ihr"/>
+                        <outlet property="thirdView" destination="szu-IY-Uff" id="Nl7-x2-uCm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRq-wv-7HK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,8 +126,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="２人の相関図" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7W-LP-G5d">
-                                <rect key="frame" x="62" y="117" width="196" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="人の相関図" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7W-LP-G5d">
+                                <rect key="frame" x="89" y="115" width="196" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -150,6 +152,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="敵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-w3-qGf">
+                                <rect key="frame" x="152" y="239" width="17" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="好き" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oer-n0-VhH">
                                 <rect key="frame" x="147" y="320" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -179,9 +187,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="敵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-w3-qGf">
-                                <rect key="frame" x="152" y="239" width="17" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIl-2d-XHR">
+                                <rect key="frame" x="57" y="115" width="30" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -192,10 +200,12 @@
                     <connections>
                         <outlet property="comment1" destination="qan-Am-1Cq" id="aqD-nF-UCS"/>
                         <outlet property="comment2" destination="7qb-jt-o7i" id="Pvc-CI-ihc"/>
-                        <outlet property="memberName1" destination="jSZ-HU-a4h" id="ESC-jZ-jHk"/>
-                        <outlet property="memberName2" destination="kZm-eR-3VK" id="meQ-LI-eMf"/>
+                        <outlet property="image1" destination="RAc-Zp-eWE" id="Pvy-L9-wyx"/>
+                        <outlet property="memberNumber" destination="uIl-2d-XHR" id="ROv-nu-bJH"/>
                         <outlet property="relationshipDown" destination="Oer-n0-VhH" id="SX3-sm-wsh"/>
                         <outlet property="relationshipUp" destination="NQq-w3-qGf" id="hGy-3c-ZkZ"/>
+                        <outlet property="textField1" destination="jSZ-HU-a4h" id="0IL-Bc-U94"/>
+                        <outlet property="textField2" destination="kZm-eR-3VK" id="O6t-q3-vXD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFT-vl-xro" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +241,7 @@
                                 <rect key="frame" x="145" y="288" width="30" height="30"/>
                                 <state key="normal" title="次へ"/>
                                 <connections>
-                                    <segue destination="fsi-06-VTP" kind="show" id="S9z-Vj-e4j"/>
+                                    <segue destination="fsi-06-VTP" kind="show" id="c1p-PH-MD9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -265,4 +275,7 @@
             <point key="canvasLocation" x="1418" y="-443"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="c1p-PH-MD9"/>
+    </inferredMetricsTieBreakers>
 </document>
