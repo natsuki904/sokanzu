@@ -1,0 +1,7 @@
+[
+{"relationship":"好き","comment":"すこぶる天才ハッカー。アノニマスの一員でもある。"},
+ {"relationship":"きらい","comment":"かつては地元で有名なヤンキーだった。今は弁護士を務める。"},
+ {"relationship":"姉貴","comment":"好きな食べ物はジョリビー。"},
+ {"relationship":"弟","comment":"好きな食べ物はああああ。"},
+ {"relationship":"神","comment":"好きな食べ物はいいいい。"}
+]

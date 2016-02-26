@@ -12,14 +12,16 @@ class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     
     @IBOutlet weak var myPicker: UIPickerView!
     //何も指定されてない時
-    var row:Int? = 1
+    var row:Int? = -1
     
     
     //データを配列で用意する
-    var  dataArray:[Int] = ([Int])(1...3)
+    var  dataArray:[Int] = ([Int])(2...3)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.row = 0
+        
     }
     //  ピッカービューの行数(1列）
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

@@ -10,17 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    @IBOutlet weak var myTitle: UILabel!
-    @IBOutlet weak var btn1: UIButton!
-    @IBOutlet weak var btn2: UIButton!
+
+
+    @IBOutlet weak var myTitle: UIImageView!
+    @IBOutlet weak var startBtn: UIButton!
    
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        myTitle.image = UIImage(named: "半沢風.jpg")
+        
+        self.startBtn.layer.cornerRadius = 10
+        
+        
+        //AppDelegateにアクセスするための準備をして
+        var myAp = UIApplication.sharedApplication().delegate as! AppDelegate
+        //プロパティの値を書き換える
+        myAp.myCount = 0
+
     }
 
     override func didReceiveMemoryWarning() {
