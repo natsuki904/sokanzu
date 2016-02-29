@@ -21,19 +21,45 @@ class fiveViewController: UIViewController {
     @IBOutlet weak var comment2: UITextView!
     @IBOutlet weak var comment3: UITextView!
     @IBOutlet weak var relationshipRight: UILabel!
+    @IBOutlet weak var relationshipRight2: UILabel!
     @IBOutlet weak var relationshipMiddle: UILabel!
+    @IBOutlet weak var relationshipMiddle2: UILabel!
     @IBOutlet weak var relationshipLeft: UILabel!
+    @IBOutlet weak var relationshipLeft2: UILabel!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var image3: UIImageView!
+    @IBOutlet weak var yajirushi1: UIImageView!
+    @IBOutlet weak var yajirushi2: UIImageView!
+    @IBOutlet weak var yajirushi3: UIImageView!
+    
     
     var memberNumber:Int = 0
     
-    
+    func snapShot() -> UIImage {
+        // キャプチャする範囲を取得.
+        let rect = self.view.bounds
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 1)
+        self.view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     @IBAction func tapShare(sender: UIButton) {
+        //ユーザーデフォルトの読み込み
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        var myStr:NSArray = myDefault.arrayForKey("myString2")!
+        var member1 = myStr[0]["name"]
+        var member2 = myStr[1]["name"]
+        var member3 = myStr[2]["name"]
+        var member1Str = String(member1)
+        var member2Str = String(member2)
+        var member3Str = String(member3)
+
         var twitterVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-        twitterVC.setInitialText("iphoneアプリ開発中なu")
+        twitterVC.setInitialText("\(member1Str)と\(member2Str)と\(member3Str)の関係")
+        twitterVC.addImage(self.snapShot())
         //message表示
         presentViewController(twitterVC, animated: true, completion: nil)
     }
@@ -41,10 +67,23 @@ class fiveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // 画像の読み込み
+        yajirushi1.image = UIImage(named: "yajirushi1.png")!
+        yajirushi2.image = UIImage(named: "yajirushi1.png")!
+        yajirushi3.image = UIImage(named: "yajirushi1.png")!
+        
+        // 角度指定？
+        var angle1:CGFloat = CGFloat((120 * M_PI) / 180.0)
+        var angle2:CGFloat = CGFloat((240 * M_PI) / 180.0)
+        
+        // 回転用のアフィン行列を生成
+        yajirushi1.transform = CGAffineTransformMakeRotation(angle1)
+        yajirushi2.transform = CGAffineTransformMakeRotation(angle2)
+        
         //ユーザーデフォルトの読み込み
         var myDefault = NSUserDefaults.standardUserDefaults()
-        var myStr:Array = myDefault.arrayForKey("myString2")!
+        var myStr:NSArray = myDefault.arrayForKey("myString2")!
         var member1 = myStr[0]["name"]
         var member2 = myStr[1]["name"]
         var member3 = myStr[2]["name"]
@@ -97,11 +136,7 @@ class fiveViewController: UIViewController {
                 
                 self.image3.image = image
         }
-
         
-        //      保存データを全削除
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        var appDomain:String = NSBundle.mainBundle().bundleIdentifier!; NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
     }
     
     
@@ -112,25 +147,40 @@ class fiveViewController: UIViewController {
         //-- 辞書データに変換して
         let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
         
-        var a = arc4random_uniform(4)
-        var b = arc4random_uniform(4)
-        var c = arc4random_uniform(4)
+        var a = arc4random_uniform(10)
+        var b = arc4random_uniform(10)
+        var c = arc4random_uniform(10)
+        var d = arc4random_uniform(10)
+        var e = arc4random_uniform(10)
+        var f = arc4random_uniform(10)
         var ransu1:Int = Int(a)
-        print("a:\(ransu1)")
+
         var ransu2:Int = Int(b)
-        print("b:\(ransu2)")
+
         var ransu3:Int = Int(c)
-        print("c:\(ransu3)")
+
+        var ransu4:Int = Int(d)
+
+        var ransu5:Int = Int(e)
+
+        var ransu6:Int = Int(f)
+
         
         let dic1 = jsonArray[ransu1]
         let dic2 = jsonArray[ransu2]
         let dic3 = jsonArray[ransu3]
+        let dic4 = jsonArray[ransu4]
+        let dic5 = jsonArray[ransu5]
+        let dic6 = jsonArray[ransu6]
         comment1.text = dic1["comment"] as! String
         comment2.text = dic2["comment"] as! String
         comment3.text = dic3["comment"] as! String
         relationshipRight.text = dic1["relationship"] as! String
+        relationshipRight2.text = dic5["relationship"] as! String
         relationshipMiddle.text = dic2["relationship"] as!String
+        relationshipMiddle2.text = dic6["relationship"] as!String
         relationshipLeft.text = dic3["relationship"] as! String
+        relationshipLeft2.text = dic4["relationship"] as! String
     }
 
     

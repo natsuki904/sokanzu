@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //      保存データを全削除
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        var appDomain:String = NSBundle.mainBundle().bundleIdentifier!; NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
+        
         myTitle.image = UIImage(named: "半沢風.jpg")
         
         self.startBtn.layer.cornerRadius = 10

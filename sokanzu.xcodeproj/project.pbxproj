@@ -20,6 +20,14 @@
 		CED165C31C7AFE7600651F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED165C11C7AFE7600651F41 /* Main.storyboard */; };
 		CED165FF1C7F3DED00651F41 /* 半沢風.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED165FE1C7F3DED00651F41 /* 半沢風.jpg */; };
 		CED166011C7F49FF00651F41 /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CED166001C7F49FF00651F41 /* noImage.png */; };
+		CED166101C81D2FE00651F41 /* yajirushi1.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1660F1C81D2FE00651F41 /* yajirushi1.png */; };
+		CED179B11C81EEFA00651F41 /* honokamarugo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CED179A91C81EEFA00651F41 /* honokamarugo.ttf */; };
+		CED179B21C81EEFA00651F41 /* LICENSE_E in Resources */ = {isa = PBXBuildFile; fileRef = CED179AB1C81EEFA00651F41 /* LICENSE_E */; };
+		CED179B31C81EEFA00651F41 /* LICENSE_J in Resources */ = {isa = PBXBuildFile; fileRef = CED179AC1C81EEFA00651F41 /* LICENSE_J */; };
+		CED179B41C81EEFA00651F41 /* README_E in Resources */ = {isa = PBXBuildFile; fileRef = CED179AD1C81EEFA00651F41 /* README_E */; };
+		CED179B51C81EEFA00651F41 /* README_J in Resources */ = {isa = PBXBuildFile; fileRef = CED179AE1C81EEFA00651F41 /* README_J */; };
+		CED179B61C81EEFA00651F41 /* 【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED179AF1C81EEFA00651F41 /* 【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt */; };
+		CED179B71C81EEFA00651F41 /* 利用前にお読みください.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED179B01C81EEFA00651F41 /* 利用前にお読みください.txt */; };
 		CED6F7711C7302C0007591CE /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7701C7302C0007591CE /* test.jpg */; };
 		CED6F7731C76FD88007591CE /* json.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7721C76FD88007591CE /* json.txt */; };
 		CED6F7751C789919007591CE /* myTitle1.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7741C789919007591CE /* myTitle1.png */; };
@@ -63,6 +71,14 @@
 		CED165C21C7AFE7600651F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CED165FE1C7F3DED00651F41 /* 半沢風.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "半沢風.jpg"; sourceTree = "<group>"; };
 		CED166001C7F49FF00651F41 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage.png; sourceTree = "<group>"; };
+		CED1660F1C81D2FE00651F41 /* yajirushi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yajirushi1.png; sourceTree = "<group>"; };
+		CED179A91C81EEFA00651F41 /* honokamarugo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = honokamarugo.ttf; sourceTree = "<group>"; };
+		CED179AB1C81EEFA00651F41 /* LICENSE_E */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_E; sourceTree = "<group>"; };
+		CED179AC1C81EEFA00651F41 /* LICENSE_J */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_J; sourceTree = "<group>"; };
+		CED179AD1C81EEFA00651F41 /* README_E */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README_E; sourceTree = "<group>"; };
+		CED179AE1C81EEFA00651F41 /* README_J */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README_J; sourceTree = "<group>"; };
+		CED179AF1C81EEFA00651F41 /* 【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt"; sourceTree = "<group>"; };
+		CED179B01C81EEFA00651F41 /* 利用前にお読みください.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "利用前にお読みください.txt"; sourceTree = "<group>"; };
 		CED6F7701C7302C0007591CE /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		CED6F7721C76FD88007591CE /* json.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.txt; sourceTree = "<group>"; };
 		CED6F7741C789919007591CE /* myTitle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTitle1.png; sourceTree = "<group>"; };
@@ -117,12 +133,14 @@
 		CE938FD11C71A4440006AB30 /* sokanzu */ = {
 			isa = PBXGroup;
 			children = (
+				CED179A81C81EEFA00651F41 /* honoka-marugo */,
 				CED165C11C7AFE7600651F41 /* Main.storyboard */,
 				CE938FD21C71A4440006AB30 /* AppDelegate.swift */,
 				CE938FD41C71A4440006AB30 /* ViewController.swift */,
 				CED165FE1C7F3DED00651F41 /* 半沢風.jpg */,
 				CED6F7761C789AC5007591CE /* myTitle2.png */,
 				CED166001C7F49FF00651F41 /* noImage.png */,
+				CED1660F1C81D2FE00651F41 /* yajirushi1.png */,
 				CED6F7741C789919007591CE /* myTitle1.png */,
 				CE9390041C71AB3B0006AB30 /* thirdViewController.swift */,
 				CE9390061C71AB970006AB30 /* fourthViewController.swift */,
@@ -153,6 +171,28 @@
 				CE938FF41C71A4440006AB30 /* Info.plist */,
 			);
 			path = sokanzuUITests;
+			sourceTree = "<group>";
+		};
+		CED179A81C81EEFA00651F41 /* honoka-marugo */ = {
+			isa = PBXGroup;
+			children = (
+				CED179A91C81EEFA00651F41 /* honokamarugo.ttf */,
+				CED179AA1C81EEFA00651F41 /* mplus-TESTFLIGHT-058 */,
+				CED179AF1C81EEFA00651F41 /* 【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt */,
+				CED179B01C81EEFA00651F41 /* 利用前にお読みください.txt */,
+			);
+			path = "honoka-marugo";
+			sourceTree = "<group>";
+		};
+		CED179AA1C81EEFA00651F41 /* mplus-TESTFLIGHT-058 */ = {
+			isa = PBXGroup;
+			children = (
+				CED179AB1C81EEFA00651F41 /* LICENSE_E */,
+				CED179AC1C81EEFA00651F41 /* LICENSE_J */,
+				CED179AD1C81EEFA00651F41 /* README_E */,
+				CED179AE1C81EEFA00651F41 /* README_J */,
+			);
+			path = "mplus-TESTFLIGHT-058";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,13 +303,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED165C31C7AFE7600651F41 /* Main.storyboard in Resources */,
+				CED179B51C81EEFA00651F41 /* README_J in Resources */,
 				CED6F7731C76FD88007591CE /* json.txt in Resources */,
 				CE938FDD1C71A4440006AB30 /* LaunchScreen.storyboard in Resources */,
+				CED166101C81D2FE00651F41 /* yajirushi1.png in Resources */,
+				CED179B61C81EEFA00651F41 /* 【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt in Resources */,
+				CED179B21C81EEFA00651F41 /* LICENSE_E in Resources */,
 				CE938FDA1C71A4440006AB30 /* Assets.xcassets in Resources */,
 				CED6F7751C789919007591CE /* myTitle1.png in Resources */,
 				CED6F7771C789AC5007591CE /* myTitle2.png in Resources */,
 				CED165FF1C7F3DED00651F41 /* 半沢風.jpg in Resources */,
 				CED6F7711C7302C0007591CE /* test.jpg in Resources */,
+				CED179B11C81EEFA00651F41 /* honokamarugo.ttf in Resources */,
+				CED179B71C81EEFA00651F41 /* 利用前にお読みください.txt in Resources */,
+				CED179B31C81EEFA00651F41 /* LICENSE_J in Resources */,
+				CED179B41C81EEFA00651F41 /* README_E in Resources */,
 				CED166011C7F49FF00651F41 /* noImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

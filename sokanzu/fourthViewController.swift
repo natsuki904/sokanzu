@@ -20,17 +20,37 @@ class fourthViewController: UIViewController {
     @IBOutlet weak var relationshipDown: UILabel!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var yajirushi1: UIImageView!
+
     
     var memberNumber:Int = 0
 
-    
+    func snapShot() -> UIImage {
+        // キャプチャする範囲を取得.
+        let rect = self.view.bounds
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 1)
+        self.view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     @IBAction func tapShare(sender: UIButton) {
+        //ユーザーデフォルトの読み込み
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        var myStr:NSArray = myDefault.arrayForKey("myString2")!
+        var member1 = myStr[0]["name"]
+        var member2 = myStr[1]["name"]
+        var member1Str = String(member1)
+        var member2Str = String(member2)
+        
         var twitterVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-        twitterVC.setInitialText("iphoneアプリ開発中なu")
+        twitterVC.setInitialText("\(member1Str)と\(member2Str)との関係")
+        twitterVC.addImage(self.snapShot())
         //message表示
         presentViewController(twitterVC, animated: true, completion: nil)
     }
+
 
     
     override func viewDidLoad() {
@@ -76,9 +96,8 @@ class fourthViewController: UIViewController {
                 self.image2.image = image
         }
         
-//      保存データを全削除
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        var appDomain:String = NSBundle.mainBundle().bundleIdentifier!; NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
+        yajirushi1.image = UIImage(named: "yajirushi1.png")
+
     }
     
     
@@ -89,8 +108,8 @@ class fourthViewController: UIViewController {
         //-- 辞書データに変換して
         let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
         
-        var n = arc4random_uniform(4)
-        var t = arc4random_uniform(4)
+        var n = arc4random_uniform(10)
+        var t = arc4random_uniform(10)
         var ransu1:Int = Int(n)
         print(ransu1)
         var ransu2:Int = Int(t)

@@ -98,7 +98,6 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
         if myDefault.arrayForKey("myString2") != nil {
             var myStr:Array = myDefault.arrayForKey("myString2")!
             
-            
             if myStr.count > 0 {
                 peopleList = myStr as! NSArray as! [NSDictionary]
             }
@@ -147,27 +146,19 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
             }
         }
-    }
-    
-    
-    @IBAction func tapNext(sender: UIButton) {
-        if memberName.text == "" || imageView.image == "noImage.png" {
-            nextBtn.enabled = false
-        } else {
+        
+        // テキストフィールドと写真を登録すると次へ進める
+        if memberName.text != "" && imageView.image != "noImage.png" {
             nextBtn.enabled = true
+            createBtn.enabled = true
         }
     }
     
-
+    
     @IBAction func tapCreate(sender: UIButton) {
         
-        if memberName.text == "" || imageView.image == "noImage.png" {
-            nextBtn.enabled = false
-        } else {
-            nextBtn.enabled = true
-        }
-                
-        if self.inputFlg {
+        self.inputFlg = false
+//        if self.inputFlg {
             if str == "2" {
                 let fourVC:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "two" )
                 self.presentViewController( fourVC as! UIViewController, animated: true, completion: nil)
@@ -175,19 +166,17 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
                 let fiveVC:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "three" )
                 self.presentViewController( fiveVC as! UIViewController, animated: true, completion: nil)
                 
-            }
-        } else {
-//            createBtn.setTitle("文字を入力してね", forState: UIControlState.Normal)
-            //アラートをつくる
+            } else {
+
             var alertController = UIAlertController(
-                title: "注意",
-                message: "ちゃんと名前と写真を選びなさいよ。",
+                title: "エラー",
+                message: "もう一度やり直して下さい",
                 preferredStyle: .Alert)
             //OKボタンを追加
             alertController.addAction(UIAlertAction(
-                title: "わかった",
+                title: "OK",
                 style: .Default,
-                handler: {action in print("わかった") }))
+                handler: {action in print("OK") }))
             //アラートを表示する
             presentViewController(alertController,
                 animated: true,
