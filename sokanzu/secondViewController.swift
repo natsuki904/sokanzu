@@ -11,6 +11,7 @@ import UIKit
 class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBOutlet weak var myPicker: UIPickerView!
+    @IBOutlet weak var myBtn: UIButton!
     
     
     //何も指定されてない時
@@ -21,6 +22,7 @@ class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     var  dataArray:[Int] = ([Int])(2...3)
     
     override func viewDidLoad() {
+        self.myBtn.layer.cornerRadius = 10
         super.viewDidLoad()
         self.row = 0
         
@@ -47,7 +49,7 @@ class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     
     // Segueで画面遷移する時
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var thirdVC = segue.destinationViewController as! thirdViewController
+        var thirdVC = segue.destinationViewController as! thirdViewController_copy
         
         var memberNumberInt:Int = dataArray[self.row!]
         

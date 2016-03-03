@@ -8,7 +8,7 @@
 
 import UIKit
 
-class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var thirdView: UIView!
     @IBOutlet weak var number: UILabel!
@@ -57,7 +57,38 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
         return true
     }
     
+    @IBAction func tapField(sender: UITextField) {
+    }
+
     @IBAction func tapGesture(sender: UITapGestureRecognizer) {
+        
+        //アラートをつくる
+        var alertController = UIAlertController(
+            title: "メッセージ",
+            message: "写真を選択する方法を選んで下さい",
+            preferredStyle: UIAlertControllerStyle.ActionSheet)
+        //アルバムボタンを追加
+        alertController.addAction(UIAlertAction(
+            title: "アルバムから選択",
+            style: .Default,
+            handler: {action in self.Album() }))
+        //カメラボタンを追加
+        alertController.addAction(UIAlertAction(
+            title: "カメラから選択",
+            style: .Default,
+            handler: {action in self.Camera() }))
+        //キャンセルボタンを追加
+        alertController.addAction(UIAlertAction(
+            title: "キャンセル",
+            style: .Cancel,
+            handler: { action in print("キャンセル")}))
+        //アラートを表示する
+        presentViewController(alertController,
+            animated: true,
+            completion: nil)
+    }
+    
+    func Album() {
         // フォトライブラリを使用できるか確認
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
             // フォトライブラリの画像・写真選択画面を表示
@@ -67,16 +98,42 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
             imagePickerController.delegate = self
             presentViewController(imagePickerController, animated: true, completion: nil)
         }
+        
     }
     
+    func Camera() {
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.Camera
+        // カメラが利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.presentViewController(cameraPicker, animated: true, completion: nil)
+            
+        }
+    }
+    
+    //　撮影が完了時した時に呼ばれる
+    func imagePickerController(imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .ScaleAspectFit
+            imageView.image = pickedImage
+        }
+        
+        //閉じる処理
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // 撮影がキャンセルされた時に呼ばれる
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-//        
-//        if imageView.image == nil {
-//            nextBtn.enabled = false
-//        } else {
-//            nextBtn.enabled = true
-//        }
-
         
         // 選択した画像・写真を取得し、imageViewに表示
         if let info = editingInfo, let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
@@ -192,7 +249,7 @@ class  thirdViewController: UIViewController, UIImagePickerControllerDelegate, U
     // Segueで画面遷移する時
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showThirdView" {
-            var thirdVC = segue.destinationViewController as! thirdViewController
+            var thirdVC = segue.destinationViewController as! thirdViewController_copy
             
             //AppDelegateにアクセスするための準備をして
             var myAp = UIApplication.sharedApplication().delegate as! AppDelegate
