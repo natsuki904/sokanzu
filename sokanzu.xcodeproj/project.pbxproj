@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE1045E71C87F8E800A2AEB3 /* thirdViewController_copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1045E61C87F8E800A2AEB3 /* thirdViewController_copy.swift */; };
+		CE1045EB1C882A2000A2AEB3 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1045EA1C882A2000A2AEB3 /* ZFRippleButton.swift */; };
+		CE1045ED1C894A1800A2AEB3 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1045EC1C894A1800A2AEB3 /* BubbleTransition.swift */; };
 		CE938FD31C71A4440006AB30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FD21C71A4440006AB30 /* AppDelegate.swift */; };
 		CE938FD51C71A4440006AB30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FD41C71A4440006AB30 /* ViewController.swift */; };
 		CE938FDA1C71A4440006AB30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE938FD91C71A4440006AB30 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		CE1045E61C87F8E800A2AEB3 /* thirdViewController_copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController_copy.swift; sourceTree = "<group>"; };
+		CE1045EA1C882A2000A2AEB3 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		CE1045EC1C894A1800A2AEB3 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		CE938FCF1C71A4440006AB30 /* sokanzu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sokanzu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE938FD21C71A4440006AB30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE938FD41C71A4440006AB30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,10 +139,12 @@
 				CED165C11C7AFE7600651F41 /* Main.storyboard */,
 				CE938FD21C71A4440006AB30 /* AppDelegate.swift */,
 				CE938FD41C71A4440006AB30 /* ViewController.swift */,
+				CE1045EC1C894A1800A2AEB3 /* BubbleTransition.swift */,
 				CED165FE1C7F3DED00651F41 /* 半沢風.jpg */,
 				CED166001C7F49FF00651F41 /* noImage.png */,
 				CED1660F1C81D2FE00651F41 /* yajirushi1.png */,
 				CE1045E61C87F8E800A2AEB3 /* thirdViewController_copy.swift */,
+				CE1045EA1C882A2000A2AEB3 /* ZFRippleButton.swift */,
 				CED6F7741C789919007591CE /* myTitle1.png */,
 				CE9390041C71AB3B0006AB30 /* thirdViewController.swift */,
 				CE9390061C71AB970006AB30 /* fourthViewController.swift */,
@@ -338,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1045ED1C894A1800A2AEB3 /* BubbleTransition.swift in Sources */,
 				CE9390071C71AB970006AB30 /* fourthViewController.swift in Sources */,
 				CE938FD51C71A4440006AB30 /* ViewController.swift in Sources */,
 				CED165C01C7AE60500651F41 /* fiveViewController.swift in Sources */,
@@ -345,6 +352,7 @@
 				CE9390051C71AB3B0006AB30 /* thirdViewController.swift in Sources */,
 				CE1045E71C87F8E800A2AEB3 /* thirdViewController_copy.swift in Sources */,
 				CE938FD31C71A4440006AB30 /* AppDelegate.swift in Sources */,
+				CE1045EB1C882A2000A2AEB3 /* ZFRippleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
 
 
     @IBOutlet weak var myTitle: UIImageView!
-    @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var startBtn: ZFRippleButton!
    
 
     
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         
         myTitle.image = UIImage(named: "半沢風.jpg")
         
-        self.startBtn.layer.cornerRadius = 10
+        self.startBtn.layer.cornerRadius = 5
         
         
         //AppDelegateにアクセスするための準備をして
@@ -34,6 +34,29 @@ class ViewController: UIViewController {
         //プロパティの値を書き換える
         myAp.myCount = 0
 
+    }
+    
+    
+    let transition = BubbleTransition()
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController
+        controller.transitioningDelegate = self
+        controller.modalPresentationStyle = .Custom
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Present
+        transition.startingPoint = startBtn.center
+        transition.bubbleColor = startBtn.backgroundColor!
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Dismiss
+        transition.startingPoint = startBtn.center
+        transition.bubbleColor = startBtn.backgroundColor!
+        return transition
     }
 
     override func didReceiveMemoryWarning() {
