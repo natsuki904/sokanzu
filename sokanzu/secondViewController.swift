@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import iAd
 
 class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBOutlet weak var myPicker: UIPickerView!
     @IBOutlet weak var myBtn: UIButton!
+    @IBOutlet weak var myiAd: ADBannerView!
     
     
     //何も指定されてない時
@@ -26,7 +28,8 @@ class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         super.viewDidLoad()
         self.row = 0
         
-
+        //広告
+        self.myiAd.hidden = true
         
     }
     //  ピッカービューの行数(1列）
@@ -56,6 +59,22 @@ class secondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         thirdVC.memberNumber = memberNumberInt
         
     }
+    
+    // バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewActionShouldBegin(banner: ADBannerView!,willLeaveApplication willLeave: Bool) -> Bool {
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!,didFailToReceiveAdWithError:NSError!) {
+        self.myiAd.hidden = true
+    }
+
     
     
     override func didReceiveMemoryWarning() {

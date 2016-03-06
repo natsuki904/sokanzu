@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4C66003AF0802918037FD2 /* Pods_sokanzu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC120C4A098D0B047C0D299 /* Pods_sokanzu.framework */; };
 		CE1045E71C87F8E800A2AEB3 /* thirdViewController_copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1045E61C87F8E800A2AEB3 /* thirdViewController_copy.swift */; };
-		CE1045EB1C882A2000A2AEB3 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1045EA1C882A2000A2AEB3 /* ZFRippleButton.swift */; };
 		CE1045ED1C894A1800A2AEB3 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1045EC1C894A1800A2AEB3 /* BubbleTransition.swift */; };
 		CE938FD31C71A4440006AB30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FD21C71A4440006AB30 /* AppDelegate.swift */; };
 		CE938FD51C71A4440006AB30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FD41C71A4440006AB30 /* ViewController.swift */; };
@@ -17,10 +17,8 @@
 		CE938FE81C71A4440006AB30 /* sokanzuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FE71C71A4440006AB30 /* sokanzuTests.swift */; };
 		CE938FF31C71A4440006AB30 /* sokanzuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938FF21C71A4440006AB30 /* sokanzuUITests.swift */; };
 		CE9390031C71AAD20006AB30 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390021C71AAD20006AB30 /* secondViewController.swift */; };
-		CE9390051C71AB3B0006AB30 /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390041C71AB3B0006AB30 /* thirdViewController.swift */; };
 		CE9390071C71AB970006AB30 /* fourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9390061C71AB970006AB30 /* fourthViewController.swift */; };
 		CED165C01C7AE60500651F41 /* fiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED165BF1C7AE60500651F41 /* fiveViewController.swift */; };
-		CED165C31C7AFE7600651F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED165C11C7AFE7600651F41 /* Main.storyboard */; };
 		CED165FF1C7F3DED00651F41 /* 半沢風.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED165FE1C7F3DED00651F41 /* 半沢風.jpg */; };
 		CED166011C7F49FF00651F41 /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CED166001C7F49FF00651F41 /* noImage.png */; };
 		CED166101C81D2FE00651F41 /* yajirushi1.png in Resources */ = {isa = PBXBuildFile; fileRef = CED1660F1C81D2FE00651F41 /* yajirushi1.png */; };
@@ -33,6 +31,8 @@
 		CED179B71C81EEFA00651F41 /* 利用前にお読みください.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED179B01C81EEFA00651F41 /* 利用前にお読みください.txt */; };
 		CED6F7731C76FD88007591CE /* json.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7721C76FD88007591CE /* json.txt */; };
 		CED6F7751C789919007591CE /* myTitle1.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6F7741C789919007591CE /* myTitle1.png */; };
+		CEDC131C1C8AE2FC0047A954 /* UIViewXXYBoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC131B1C8AE2FC0047A954 /* UIViewXXYBoom.swift */; };
+		CEDC131E1C8C32980047A954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDC131D1C8C32980047A954 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D4BF76B07921D485982939A /* Pods-sokanzu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sokanzu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sokanzu/Pods-sokanzu.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1045E61C87F8E800A2AEB3 /* thirdViewController_copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController_copy.swift; sourceTree = "<group>"; };
-		CE1045EA1C882A2000A2AEB3 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		CE1045EC1C894A1800A2AEB3 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		CE938FCF1C71A4440006AB30 /* sokanzu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sokanzu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE938FD21C71A4440006AB30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,10 +69,8 @@
 		CE938FF21C71A4440006AB30 /* sokanzuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sokanzuUITests.swift; sourceTree = "<group>"; };
 		CE938FF41C71A4440006AB30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9390021C71AAD20006AB30 /* secondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
-		CE9390041C71AB3B0006AB30 /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
 		CE9390061C71AB970006AB30 /* fourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fourthViewController.swift; sourceTree = "<group>"; };
 		CED165BF1C7AE60500651F41 /* fiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fiveViewController.swift; sourceTree = "<group>"; };
-		CED165C21C7AFE7600651F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CED165FE1C7F3DED00651F41 /* 半沢風.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "半沢風.jpg"; sourceTree = "<group>"; };
 		CED166001C7F49FF00651F41 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage.png; sourceTree = "<group>"; };
 		CED1660F1C81D2FE00651F41 /* yajirushi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yajirushi1.png; sourceTree = "<group>"; };
@@ -85,6 +83,10 @@
 		CED179B01C81EEFA00651F41 /* 利用前にお読みください.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "利用前にお読みください.txt"; sourceTree = "<group>"; };
 		CED6F7721C76FD88007591CE /* json.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.txt; sourceTree = "<group>"; };
 		CED6F7741C789919007591CE /* myTitle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTitle1.png; sourceTree = "<group>"; };
+		CEDC131B1C8AE2FC0047A954 /* UIViewXXYBoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXXYBoom.swift; sourceTree = "<group>"; };
+		CEDC131D1C8C32980047A954 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DF77760AC766AF4BEE64859B /* Pods-sokanzu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sokanzu.release.xcconfig"; path = "Pods/Target Support Files/Pods-sokanzu/Pods-sokanzu.release.xcconfig"; sourceTree = "<group>"; };
+		DFC120C4A098D0B047C0D299 /* Pods_sokanzu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sokanzu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4C66003AF0802918037FD2 /* Pods_sokanzu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49DAF4927AA2583A8C8ABA80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF76B07921D485982939A /* Pods-sokanzu.debug.xcconfig */,
+				DF77760AC766AF4BEE64859B /* Pods-sokanzu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE938FC61C71A4440006AB30 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,8 @@
 				CE938FE61C71A4440006AB30 /* sokanzuTests */,
 				CE938FF11C71A4440006AB30 /* sokanzuUITests */,
 				CE938FD01C71A4440006AB30 /* Products */,
+				49DAF4927AA2583A8C8ABA80 /* Pods */,
+				DC0DD7FE63D35EFF3E99D48F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,17 +150,16 @@
 			isa = PBXGroup;
 			children = (
 				CED179A81C81EEFA00651F41 /* honoka-marugo */,
-				CED165C11C7AFE7600651F41 /* Main.storyboard */,
 				CE938FD21C71A4440006AB30 /* AppDelegate.swift */,
 				CE938FD41C71A4440006AB30 /* ViewController.swift */,
 				CE1045EC1C894A1800A2AEB3 /* BubbleTransition.swift */,
 				CED165FE1C7F3DED00651F41 /* 半沢風.jpg */,
 				CED166001C7F49FF00651F41 /* noImage.png */,
 				CED1660F1C81D2FE00651F41 /* yajirushi1.png */,
+				CEDC131D1C8C32980047A954 /* Main.storyboard */,
 				CE1045E61C87F8E800A2AEB3 /* thirdViewController_copy.swift */,
-				CE1045EA1C882A2000A2AEB3 /* ZFRippleButton.swift */,
+				CEDC131B1C8AE2FC0047A954 /* UIViewXXYBoom.swift */,
 				CED6F7741C789919007591CE /* myTitle1.png */,
-				CE9390041C71AB3B0006AB30 /* thirdViewController.swift */,
 				CE9390061C71AB970006AB30 /* fourthViewController.swift */,
 				CED165BF1C7AE60500651F41 /* fiveViewController.swift */,
 				CE938FD91C71A4440006AB30 /* Assets.xcassets */,
@@ -198,6 +211,14 @@
 			path = "mplus-TESTFLIGHT-058";
 			sourceTree = "<group>";
 		};
+		DC0DD7FE63D35EFF3E99D48F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFC120C4A098D0B047C0D299 /* Pods_sokanzu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE938FF71C71A4440006AB30 /* Build configuration list for PBXNativeTarget "sokanzu" */;
 			buildPhases = (
+				0A9AE3F1E2E3F71F38D1055E /* Check Pods Manifest.lock */,
 				CE938FCB1C71A4440006AB30 /* Sources */,
 				CE938FCC1C71A4440006AB30 /* Frameworks */,
 				CE938FCD1C71A4440006AB30 /* Resources */,
+				009CAA1B97F3232E56ABD90C /* Embed Pods Frameworks */,
+				5DC1E2453B482FBC28D868E6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,13 +329,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED165C31C7AFE7600651F41 /* Main.storyboard in Resources */,
 				CED179B51C81EEFA00651F41 /* README_J in Resources */,
 				CED6F7731C76FD88007591CE /* json.txt in Resources */,
 				CE938FDD1C71A4440006AB30 /* LaunchScreen.storyboard in Resources */,
 				CED166101C81D2FE00651F41 /* yajirushi1.png in Resources */,
 				CED179B61C81EEFA00651F41 /* 【源ノ角ゴシック・源柔ゴシック】Apache License 2.0.txt in Resources */,
 				CED179B21C81EEFA00651F41 /* LICENSE_E in Resources */,
+				CEDC131E1C8C32980047A954 /* Main.storyboard in Resources */,
 				CE938FDA1C71A4440006AB30 /* Assets.xcassets in Resources */,
 				CED6F7751C789919007591CE /* myTitle1.png in Resources */,
 				CED165FF1C7F3DED00651F41 /* 半沢風.jpg in Resources */,
@@ -339,20 +363,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		009CAA1B97F3232E56ABD90C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sokanzu/Pods-sokanzu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0A9AE3F1E2E3F71F38D1055E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5DC1E2453B482FBC28D868E6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sokanzu/Pods-sokanzu-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE938FCB1C71A4440006AB30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDC131C1C8AE2FC0047A954 /* UIViewXXYBoom.swift in Sources */,
 				CE1045ED1C894A1800A2AEB3 /* BubbleTransition.swift in Sources */,
 				CE9390071C71AB970006AB30 /* fourthViewController.swift in Sources */,
 				CE938FD51C71A4440006AB30 /* ViewController.swift in Sources */,
 				CED165C01C7AE60500651F41 /* fiveViewController.swift in Sources */,
 				CE9390031C71AAD20006AB30 /* secondViewController.swift in Sources */,
-				CE9390051C71AB3B0006AB30 /* thirdViewController.swift in Sources */,
 				CE1045E71C87F8E800A2AEB3 /* thirdViewController_copy.swift in Sources */,
 				CE938FD31C71A4440006AB30 /* AppDelegate.swift in Sources */,
-				CE1045EB1C882A2000A2AEB3 /* ZFRippleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,14 +465,6 @@
 				CE938FDC1C71A4440006AB30 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		CED165C11C7AFE7600651F41 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CED165C21C7AFE7600651F41 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -490,6 +553,7 @@
 		};
 		CE938FF81C71A4440006AB30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D4BF76B07921D485982939A /* Pods-sokanzu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = sokanzu/Info.plist;
@@ -501,6 +565,7 @@
 		};
 		CE938FF91C71A4440006AB30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF77760AC766AF4BEE64859B /* Pods-sokanzu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = sokanzu/Info.plist;

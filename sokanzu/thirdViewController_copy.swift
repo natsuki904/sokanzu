@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iAd
 
 class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -16,6 +17,7 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var createBtn: UIButton!
+    @IBOutlet weak var myiAd: ADBannerView!
     
     var memberNumber:Int = 0
     var str:String = ""
@@ -36,7 +38,9 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
         var myAp3:String = String(myAp2)
         number.text = myAp3
         str2 = memberName.text!
-
+        
+        //広告
+        self.myiAd.hidden = true
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -121,6 +125,35 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
             imageView.contentMode = .ScaleAspectFit
             imageView.image = pickedImage
         }
+        
+        
+        let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]!
+        let url = NSURL(string: assetURL.description)
+        
+        //ユーザーデフォルトを用意する
+        var myDefault = NSUserDefaults.standardUserDefaults()
+        
+        var peopleList:[NSDictionary] = []
+        
+        if myDefault.arrayForKey("myString2") != nil {
+            var myStr:Array = myDefault.arrayForKey("myString2")!
+            
+            if myStr.count > 0 {
+                peopleList = myStr as! NSArray as! [NSDictionary]
+            }
+            
+        }
+        
+        var data:NSDictionary = ["name":memberName.text!, "image":assetURL.description]
+        peopleList.append(data)
+        print(peopleList)
+        
+        
+        //データを書き込んで
+        myDefault.setObject(peopleList, forKey: "myString2")
+        //即反映させる
+        myDefault.synchronize()
+        
         
         //閉じる処理
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
@@ -218,7 +251,6 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
     @IBAction func tapCreate(sender: UIButton) {
         
         self.inputFlg = false
-//        if self.inputFlg {
             if str == "2" {
                 let fourVC:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "two" )
                 self.presentViewController( fourVC as! UIViewController, animated: true, completion: nil)
@@ -268,6 +300,21 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewActionShouldBegin(banner: ADBannerView!,willLeaveApplication willLeave: Bool) -> Bool {
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!,didFailToReceiveAdWithError:NSError!) {
+        self.myiAd.hidden = true
     }
     
 

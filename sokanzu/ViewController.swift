@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import iAd
+
 
 class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
 
 
     @IBOutlet weak var myTitle: UIImageView!
-    @IBOutlet weak var startBtn: ZFRippleButton!
-   
+    @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var myiAd: ADBannerView!
 
     
     
@@ -34,29 +36,82 @@ class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
         //プロパティの値を書き換える
         myAp.myCount = 0
 
+        self.canDisplayBannerAds = true
+        
+
+        //広告
+        self.myiAd.hidden = true
+
     }
     
-    
-    let transition = BubbleTransition()
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let controller = segue.destinationViewController
-        controller.transitioningDelegate = self
-        controller.modalPresentationStyle = .Custom
+    @IBAction func boomAction(sender: AnyObject) {
+        //view.boom()
+        (sender as! UIButton).enabled = false
+        delay(0, task: {self.startBtn.boom()})
+
+        let secondVC:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "one" )
+        self.presentViewController( secondVC as! UIViewController, animated: true, completion: nil)
+
     }
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .Present
-        transition.startingPoint = startBtn.center
-        transition.bubbleColor = startBtn.backgroundColor!
-        return transition
+
+    typealias Task = (cancel : Bool) -> ()
+    
+    func delay(time:NSTimeInterval, task:()->()) ->  Task? {
+        
+        func dispatch_later(block:()->()) {
+            dispatch_after(
+                dispatch_time(
+                    DISPATCH_TIME_NOW,
+                    Int64(time * Double(NSEC_PER_SEC))),
+                dispatch_get_main_queue(),
+                block)
+        }
+        
+        var closure: dispatch_block_t? = task
+        var result: Task?
+        
+        let delayedClosure: Task = {
+            cancel in
+            if let internalClosure = closure {
+                if (cancel == false) {
+                    dispatch_async(dispatch_get_main_queue(), internalClosure);
+                }
+            }
+            closure = nil
+            result = nil
+        }
+        
+        result = delayedClosure
+        
+        dispatch_later {
+            if let delayedClosure = result {
+                delayedClosure(cancel: false)
+            }
+        }
+        
+        return result;
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .Dismiss
-        transition.startingPoint = startBtn.center
-        transition.bubbleColor = startBtn.backgroundColor!
-        return transition
+    func cancel(task:Task?) {
+        task?(cancel: true)
+    }
+
+    
+    
+    // バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewActionShouldBegin(banner: ADBannerView!,willLeaveApplication willLeave: Bool) -> Bool {
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!,didFailToReceiveAdWithError:NSError!) {
+        self.myiAd.hidden = true
     }
 
     override func didReceiveMemoryWarning() {

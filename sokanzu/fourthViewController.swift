@@ -9,6 +9,7 @@
 import UIKit
 import Social
 import Photos
+import iAd
 
 class fourthViewController: UIViewController {
 
@@ -21,9 +22,65 @@ class fourthViewController: UIViewController {
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var yajirushi1: UIImageView!
+    @IBOutlet weak var myiAd: ADBannerView!
 
     
     var memberNumber:Int = 0
+    
+    @IBAction func tapImage1(sender: AnyObject) {
+        (sender as! UITapGestureRecognizer).enabled = false
+        delay(0, task: {self.image1.boom()})
+
+    }
+    
+    typealias Task = (cancel : Bool) -> ()
+
+    
+    func delay(time:NSTimeInterval, task:()->()) ->  Task? {
+        
+        func dispatch_later(block:()->()) {
+            dispatch_after(
+                dispatch_time(
+                    DISPATCH_TIME_NOW,
+                    Int64(time * Double(NSEC_PER_SEC))),
+                dispatch_get_main_queue(),
+                block)
+        }
+        
+        var closure: dispatch_block_t? = task
+        var result: Task?
+        
+        let delayedClosure: Task = {
+            cancel in
+            if let internalClosure = closure {
+                if (cancel == false) {
+                    dispatch_async(dispatch_get_main_queue(), internalClosure);
+                }
+            }
+            closure = nil
+            result = nil
+        }
+        
+        result = delayedClosure
+        
+        dispatch_later {
+            if let delayedClosure = result {
+                delayedClosure(cancel: false)
+            }
+        }
+        
+        return result;
+    }
+
+    
+    
+    @IBAction func tapImage2(sender: AnyObject) {
+        (sender as! UITapGestureRecognizer).enabled = false
+        delay(0, task: {self.image2.boom()})
+
+    }
+    
+    
 
     func snapShot() -> UIImage {
         // キャプチャする範囲を取得.
@@ -50,15 +107,13 @@ class fourthViewController: UIViewController {
         //message表示
         presentViewController(twitterVC, animated: true, completion: nil)
     }
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //ユーザーデフォルトの読み込み
         var myDefault = NSUserDefaults.standardUserDefaults()
-        var myStr:Array = myDefault.arrayForKey("myString2")!
+        var myStr:NSArray = myDefault.arrayForKey("myString2")!
         var member1 = myStr[0]["name"]
         var member2 = myStr[1]["name"]
         var imageStr1 = myStr[0]["image"]
@@ -97,6 +152,9 @@ class fourthViewController: UIViewController {
         }
         
         yajirushi1.image = UIImage(named: "yajirushi1.png")
+        
+        //広告
+        self.myiAd.hidden = true
 
     }
     

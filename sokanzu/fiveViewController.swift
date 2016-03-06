@@ -9,7 +9,7 @@
 import UIKit
 import Social
 import Photos
-
+import iAd
 
 class fiveViewController: UIViewController {
 
@@ -32,9 +32,69 @@ class fiveViewController: UIViewController {
     @IBOutlet weak var yajirushi1: UIImageView!
     @IBOutlet weak var yajirushi2: UIImageView!
     @IBOutlet weak var yajirushi3: UIImageView!
-    
+    @IBOutlet weak var myiAd: ADBannerView!
     
     var memberNumber:Int = 0
+    
+    @IBAction func tapImage(sender: AnyObject) {
+        (sender as! UITapGestureRecognizer).enabled = false
+        delay(0, task: {self.image1.boom()})
+
+    }
+    
+    @IBAction func tapImage2(sender: AnyObject) {
+        (sender as! UITapGestureRecognizer).enabled = false
+        delay(0, task: {self.image2.boom()})
+
+    }
+    
+    @IBAction func tapImage3(sender: AnyObject) {
+        (sender as! UITapGestureRecognizer).enabled = false
+        delay(0, task: {self.image3.boom()})
+
+    }
+    
+    typealias Task = (cancel : Bool) -> ()
+    
+    
+    func delay(time:NSTimeInterval, task:()->()) ->  Task? {
+        
+        func dispatch_later(block:()->()) {
+            dispatch_after(
+                dispatch_time(
+                    DISPATCH_TIME_NOW,
+                    Int64(time * Double(NSEC_PER_SEC))),
+                dispatch_get_main_queue(),
+                block)
+        }
+        
+        var closure: dispatch_block_t? = task
+        var result: Task?
+        
+        let delayedClosure: Task = {
+            cancel in
+            if let internalClosure = closure {
+                if (cancel == false) {
+                    dispatch_async(dispatch_get_main_queue(), internalClosure);
+                }
+            }
+            closure = nil
+            result = nil
+        }
+        
+        result = delayedClosure
+        
+        dispatch_later {
+            if let delayedClosure = result {
+                delayedClosure(cancel: false)
+            }
+        }
+        
+        return result;
+    }
+
+    
+    
     
     func snapShot() -> UIImage {
         // キャプチャする範囲を取得.
@@ -137,6 +197,8 @@ class fiveViewController: UIViewController {
                 self.image3.image = image
         }
         
+        //広告
+        self.myiAd.hidden = true
     }
     
     
@@ -154,15 +216,10 @@ class fiveViewController: UIViewController {
         var e = arc4random_uniform(10)
         var f = arc4random_uniform(10)
         var ransu1:Int = Int(a)
-
         var ransu2:Int = Int(b)
-
         var ransu3:Int = Int(c)
-
         var ransu4:Int = Int(d)
-
         var ransu5:Int = Int(e)
-
         var ransu6:Int = Int(f)
 
         
@@ -188,6 +245,22 @@ class fiveViewController: UIViewController {
         let fourVC:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "top" )
         self.presentViewController( fourVC as! UIViewController, animated: true, completion: nil)
     }
+    
+    // バナーに広告が表示された時
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        self.myiAd.hidden = false
+    }
+    
+    //バナーがクリックされた時
+    func bannerViewActionShouldBegin(banner: ADBannerView!,willLeaveApplication willLeave: Bool) -> Bool {
+        return willLeave
+    }
+    
+    //広告表示にエラーが発生した場合
+    func bannerView(banner:ADBannerView!,didFailToReceiveAdWithError:NSError!) {
+        self.myiAd.hidden = true
+    }
+
     
     
     override func didReceiveMemoryWarning() {
