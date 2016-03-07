@@ -45,58 +45,35 @@ class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
     }
     
     @IBAction func boomAction(sender: AnyObject) {
-        //view.boom()
-        (sender as! UIButton).enabled = false
-        delay(0, task: {self.startBtn.boom()})
 
         let secondVC:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "one" )
         self.presentViewController( secondVC as! UIViewController, animated: true, completion: nil)
 
     }
-    
 
-    typealias Task = (cancel : Bool) -> ()
+    let transition = BubbleTransition()
     
-    func delay(time:NSTimeInterval, task:()->()) ->  Task? {
-        
-        func dispatch_later(block:()->()) {
-            dispatch_after(
-                dispatch_time(
-                    DISPATCH_TIME_NOW,
-                    Int64(time * Double(NSEC_PER_SEC))),
-                dispatch_get_main_queue(),
-                block)
-        }
-        
-        var closure: dispatch_block_t? = task
-        var result: Task?
-        
-        let delayedClosure: Task = {
-            cancel in
-            if let internalClosure = closure {
-                if (cancel == false) {
-                    dispatch_async(dispatch_get_main_queue(), internalClosure);
-                }
-            }
-            closure = nil
-            result = nil
-        }
-        
-        result = delayedClosure
-        
-        dispatch_later {
-            if let delayedClosure = result {
-                delayedClosure(cancel: false)
-            }
-        }
-        
-        return result;
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController
+        controller.transitioningDelegate = self
+        controller.modalPresentationStyle = .Custom
     }
     
-    func cancel(task:Task?) {
-        task?(cancel: true)
+    // MARK: UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Present
+        transition.startingPoint = startBtn.center
+        transition.bubbleColor = startBtn.backgroundColor!
+        return transition
     }
-
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Dismiss
+        transition.startingPoint = startBtn.center
+        transition.bubbleColor = startBtn.backgroundColor!
+        return transition
+    }
     
     
     // バナーに広告が表示された時
