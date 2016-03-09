@@ -8,6 +8,7 @@
 
 import UIKit
 import iAd
+import AssetsLibrary
 
 class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -41,27 +42,24 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
         
         //広告
         self.myiAd.hidden = true
+        
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         var textFieldString = textField.text! as NSString
         textFieldString = textFieldString.stringByReplacingCharactersInRange(range, withString: string)
-        if memberName.text == "" {
-            // textFieldが空のとき
-            // myButtonを使用不可に
-            nextBtn.enabled = false
-            self.inputFlg = false
-        }else{
-            // textFieldに1文字でも入力されているとき
-            // myButtonを使用可能に
-            nextBtn.enabled = true
-            self.inputFlg = true
-        }
+        
         // ↓trueを返すことで入力が確定する
         return true
     }
     
     @IBAction func tapField(sender: UITextField) {
+        // テキストフィールドと写真を登録すると次へ進める
+        if memberName.text != "" && imageView.image != "noImage.png" {
+            nextBtn.enabled = true
+            createBtn.enabled = true
+        }
+
     }
 
     @IBAction func tapGesture(sender: UITapGestureRecognizer) {
@@ -118,45 +116,87 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    //　撮影が完了時した時に呼ばれる
+    // 撮影が完了時した時・ライブラリを選択した後に呼ばれる
     func imagePickerController(imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .ScaleAspectFit
-            imageView.image = pickedImage
-        }
-        
-        
-        let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]!
-        let url = NSURL(string: assetURL.description)
-        
-        //ユーザーデフォルトを用意する
-        var myDefault = NSUserDefaults.standardUserDefaults()
-        
-        var peopleList:[NSDictionary] = []
-        
-        if myDefault.arrayForKey("myString2") != nil {
-            var myStr:Array = myDefault.arrayForKey("myString2")!
-            
-            if myStr.count > 0 {
-                peopleList = myStr as! NSArray as! [NSDictionary]
+        if  info[UIImagePickerControllerReferenceURL] == nil {
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                imageView.contentMode = .ScaleAspectFit
+                imageView.image = pickedImage
             }
             
+            
+            //メタデータを保存するためにはAssetsLibraryを使用する
+            var library : ALAssetsLibrary = ALAssetsLibrary()
+            library.writeImageToSavedPhotosAlbum(imageView.image!.CGImage,metadata: info, completionBlock:{
+                (assetURL: NSURL!, error: NSError!) -> Void in
+                
+                let url = NSURL(string: assetURL.description)
+                
+                //ユーザーデフォルトを用意する
+                var myDefault = NSUserDefaults.standardUserDefaults()
+                
+                var peopleList:[NSDictionary] = []
+                
+                if myDefault.arrayForKey("myString2") != nil {
+                    var myStr:Array = myDefault.arrayForKey("myString2")!
+                    
+                    if myStr.count > 0 {
+                        peopleList = myStr as! NSArray as! [NSDictionary]
+                    }
+                }
+                
+                var data:NSDictionary = ["name":self.memberName.text!, "image":assetURL.description]
+                peopleList.append(data)
+                
+                
+                //データを書き込んで
+                myDefault.setObject(peopleList, forKey: "myString2")
+                //即反映させる
+                myDefault.synchronize()
+            })
+            
+            //閉じる処理
+            imagePicker.dismissViewControllerAnimated(true, completion: nil)
+
+        } else {
+            let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]!
+            let url = NSURL(string: assetURL.description)
+            
+            //ユーザーデフォルトを用意する
+            var myDefault = NSUserDefaults.standardUserDefaults()
+            
+            var peopleList:[NSDictionary] = []
+            
+            if myDefault.arrayForKey("myString2") != nil {
+                var myStr:Array = myDefault.arrayForKey("myString2")!
+                
+                if myStr.count > 0 {
+                    peopleList = myStr as! NSArray as! [NSDictionary]
+                }
+                
+            }
+            
+            var data:NSDictionary = ["name":memberName.text!, "image":assetURL.description]
+            peopleList.append(data)
+            
+            
+            //データを書き込んで
+            myDefault.setObject(peopleList, forKey: "myString2")
+            //即反映させる
+            myDefault.synchronize()
+            
+            //閉じる処理
+            imagePicker.dismissViewControllerAnimated(true, completion: nil)
+            
+            
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                imageView.contentMode = .ScaleAspectFit
+                imageView.image = pickedImage
+            }
+
         }
-        
-        var data:NSDictionary = ["name":memberName.text!, "image":assetURL.description]
-        peopleList.append(data)
-        print(peopleList)
-        
-        
-        //データを書き込んで
-        myDefault.setObject(peopleList, forKey: "myString2")
-        //即反映させる
-        myDefault.synchronize()
-        
-        
-        //閉じる処理
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+       
     }
     
     // 撮影がキャンセルされた時に呼ばれる
@@ -166,49 +206,49 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
     
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-        // 選択した画像・写真を取得し、imageViewに表示
-        if let info = editingInfo, let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
-            imageView.image = editedImage
-        }else{
-            imageView.image = image
-        }
-        
-        // フォトライブラリの画像・写真選択画面を閉じる
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        
-        
-        let assetURL:AnyObject = editingInfo![UIImagePickerControllerReferenceURL]!
-        let url = NSURL(string: assetURL.description)
-        
-      
-        //ユーザーデフォルトを用意する
-        var myDefault = NSUserDefaults.standardUserDefaults()
-        
-        var peopleList:[NSDictionary] = []
-        
-        if myDefault.arrayForKey("myString2") != nil {
-            var myStr:Array = myDefault.arrayForKey("myString2")!
-            
-            if myStr.count > 0 {
-                peopleList = myStr as! NSArray as! [NSDictionary]
-            }
-        
-        }
-        
-        var data:NSDictionary = ["name":memberName.text!, "image":assetURL.description]
-        peopleList.append(data)
-        print(peopleList)
-        
-        
-        //データを書き込んで
-        myDefault.setObject(peopleList, forKey: "myString2")
-        //即反映させる
-        myDefault.synchronize()
-
-    }
-    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//        
+//        // 選択した画像・写真を取得し、imageViewに表示
+//        if let info = editingInfo, let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
+//            imageView.image = editedImage
+//        }else{
+//            imageView.image = image
+//        }
+//        
+//        // フォトライブラリの画像・写真選択画面を閉じる
+//        picker.dismissViewControllerAnimated(true, completion: nil)
+//        
+//        
+//        let assetURL:AnyObject = editingInfo![UIImagePickerControllerReferenceURL]!
+//        let url = NSURL(string: assetURL.description)
+//        
+//      
+//        //ユーザーデフォルトを用意する
+//        var myDefault = NSUserDefaults.standardUserDefaults()
+//        
+//        var peopleList:[NSDictionary] = []
+//        
+//        if myDefault.arrayForKey("myString2") != nil {
+//            var myStr:Array = myDefault.arrayForKey("myString2")!
+//            
+//            if myStr.count > 0 {
+//                peopleList = myStr as! NSArray as! [NSDictionary]
+//            }
+//        
+//        }
+//        
+//        var data:NSDictionary = ["name":memberName.text!, "image":assetURL.description]
+//        peopleList.append(data)
+//        print(peopleList)
+//        
+//        
+//        //データを書き込んで
+//        myDefault.setObject(peopleList, forKey: "myString2")
+//        //即反映させる
+//        myDefault.synchronize()
+//
+//    }
+//    
     
     override func viewWillAppear(animated: Bool) {
         

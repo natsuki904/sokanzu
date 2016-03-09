@@ -98,11 +98,12 @@ class fourthViewController: UIViewController {
         var myStr:NSArray = myDefault.arrayForKey("myString2")!
         var member1 = myStr[0]["name"]
         var member2 = myStr[1]["name"]
-        var member1Str = String(member1)
-        var member2Str = String(member2)
+        var member1Str = member1 as! String
+        var member2Str = member2 as! String
         
         var twitterVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-        twitterVC.setInitialText("\(member1Str)と\(member2Str)との関係")
+        
+        twitterVC.setInitialText("\(member1Str)と\(member2Str)の相関図")
         twitterVC.addImage(self.snapShot())
         //message表示
         presentViewController(twitterVC, animated: true, completion: nil)
@@ -166,7 +167,7 @@ class fourthViewController: UIViewController {
         //-- 辞書データに変換して
         let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(jsondata!, options: [])) as! NSArray
         
-        var n = arc4random_uniform(10)
+        var n = arc4random_uniform(7)
         var t = arc4random_uniform(10)
         var ransu1:Int = Int(n)
         print(ransu1)

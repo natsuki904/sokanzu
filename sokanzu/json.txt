@@ -4,9 +4,9 @@
  {"relationship":"何奴!?","comment":"アメリカ生まれ、火星育ち。主食はトマト。"},
  {"relationship":"貴様！","comment":"数少ないサムライ。副業はコンビニの店長。"},
  {"relationship":"ううっ","comment":"国民的アイドル。超大物芸能人と二股している。"},
- {"relationship":"尊敬","comment":"2100年からきた人型ロボットで、性格は天然。"},
- {"relationship":"妹","comment":"見た目は人たらし、頭脳は5歳時。"},
+ {"relationship":"尊敬","comment":"歌って踊れるアンドロイド、得意技は早口言葉。"},
+ {"relationship":"妹","comment":"見た目は大人、頭脳は子供。その名は迷探偵"},
  {"relationship":"嫌い","comment":"人型兵機。可能性は無限大。必殺技は噛む噛む波ー"},
- {"relationship":"神","comment":"ケイティー◯リーとは腐れ縁の人気シンガーの甥"},
- {"relationship":"無理","comment":"食べられたら食べかえす、倍返しだ！"}
+ {"relationship":"神","comment":"ケイティーペリーとは腐れ縁の人気シンガーのいとこ"},
+ {"relationship":"無理","comment":"最近モテ期到来。"}
 ]
