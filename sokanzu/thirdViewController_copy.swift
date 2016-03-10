@@ -55,7 +55,7 @@ class  thirdViewController_copy: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func tapField(sender: UITextField) {
 //         テキストフィールドと写真を登録すると次へ進める
-        if memberName.text != "" && imageView.image != "noImage.png" {
+        if memberName.text != "" && imageView.image != UIImage(named: "noImage.png") {
             nextBtn.enabled = true
             createBtn.enabled = true
         }
